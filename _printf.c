@@ -10,7 +10,7 @@
 int _putchar (char c)
 
 {
-	return write(1,&c,1);
+	return (write(1, &c, 1));
 }
 
 /**
@@ -22,7 +22,9 @@ int _putchar (char c)
 int _printf(const char *format, ...)
 {
 	va_list args;
+
 	va_start(args, format);
+
 	char ch;
 	int chars_printed = 0;
 
@@ -40,14 +42,16 @@ int _printf(const char *format, ...)
 			if (ch == 'c')
 			{
 				char c = va_arg(args, int);
+
 				_putchar(c);
 				chars_printed++;
 			}
 			else if (ch == 's')
 			{
 				char *str;
+
 				str = va_arg(args, char*);
-				while(*str)
+				while (*str)
 				{	
 					_putchar(*str);
 					chars_printed++;
@@ -57,5 +61,5 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(args);
-	return chars_printed;
+	return (chars_printed);
 }
