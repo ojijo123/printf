@@ -1,28 +1,15 @@
 #include "main.h"
 #include <stdarg.h>
-#include <unistd.h>
-
-/**
- * _putchar - print a character
- * Return: character on success otherwise -1 is retuned
- */
-
-int _putchar (char c)
-
-{
-	return (write(1, &c, 1));
-}
-
 /**
  * _printf - cutom printf
  * @format: format string
  * Return: printed charaters excluding the null byte
  */
-
 int _printf(const char *format, ...)
 {
 	char ch;
 	int chars_printed = 0;
+
 	va_list args;
 
 	va_start(args, format);
@@ -45,6 +32,7 @@ int _printf(const char *format, ...)
 				_putchar(c);
 				chars_printed++;
 			}
+
 		}
 		format++;
 	}
