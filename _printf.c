@@ -21,6 +21,7 @@ int _printf(const char *format, ...)
 {
 	char ch;
 	int chars_printed = 0;
+	int i;
 	va_list args;
 
 	va_start(args, format);
@@ -42,6 +43,17 @@ int _printf(const char *format, ...)
 
 				_putchar(c);
 				chars_printed++;
+			}
+			else if (ch == 's')
+			{
+				char *str;
+
+				str = va_arg(args, char*);
+				for (i = 0; str[i] != '\0'; i++)
+				{
+					_putchar(str[i]);
+					chars_printed++;
+				}
 			}
 
 		}
