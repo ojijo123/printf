@@ -1,5 +1,17 @@
 #include "main.h"
 #include <stdarg.h>
+#include <unistd.h>
+
+/**
+ * _putchar - helper function to print a character
+ *@c: the character to be printed
+ * Return: returns character printed
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+
 /**
  * _printf - cutom printf
  * @format: format string
