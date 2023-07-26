@@ -21,12 +21,11 @@ int _putchar (char c)
 
 int _printf(const char *format, ...)
 {
+	char ch;
+	int chars_printed = 0;
 	va_list args;
 
 	va_start(args, format);
-
-	char ch;
-	int chars_printed = 0;
 
 	while (*format)
 	{
