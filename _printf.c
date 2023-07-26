@@ -46,17 +46,6 @@ int _printf(const char *format, ...)
 				_putchar(c);
 				chars_printed++;
 			}
-			else if (ch == 's')
-			{
-				char *str;
-
-				str = va_arg(args, char*);
-				while (*str)
-				{	
-					_putchar(*str);
-					chars_printed++;
-				}
-			}
 		}
 		format++;
 	}
