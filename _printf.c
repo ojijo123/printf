@@ -68,10 +68,10 @@ int _printf(const char *format, ...)
 				number = va_arg(args, int);
 
 				/*account for negative number*/
-				negative = 0;
 				if (number < 0)
 				{
-					negative = 0;
+					_putchar('-');
+					chars_printed++
 					number = -number;
 				}
 
@@ -89,12 +89,6 @@ int _printf(const char *format, ...)
 					chars_printed++;
 					number = number % divisor;
 					divisor /= 10;
-				}
-
-				if (negative)
-				{
-					_putchar('-');
-					chars_printed++;
 				}
 
 			}
