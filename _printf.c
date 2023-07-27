@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
 #include <unistd.h>
-#include <limits.h>
 /**
  * _putchar - helper function to print a character
  *@c: the character to be printed
@@ -75,17 +74,6 @@ int _printf(const char *format, ...)
 					negative = 0;
 					number = -number;
 				}
-
-
-				if (number == INT_MAX)
-				{
-					divisor = 1000000000;
-					digits = number / divisor;
-					_putchar(digits + '0');
-					chars_printed++;
-					number %= divisor;
-				}
-
 
 				/*for number with more than one digit*/
 				divisor = 1;
