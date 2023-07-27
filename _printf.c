@@ -19,6 +19,9 @@ int _putchar(char c)
  */
 int _printf(const char *format, ...)
 {
+	int digits;
+	int divisor;
+	int number;
 	char ch;
 	int chars_printed = 0;
 	int i;
@@ -59,6 +62,39 @@ int _printf(const char *format, ...)
 			{
 				_putchar(*format);
 				chars_printed++;
+			}
+			else if (ch == 'd' || ch == 'i')
+			{
+				number = va_arg(args, int);
+
+				/*account for negative number*/
+				if (number < 0)
+				{
+					_putchar('-');
+					chars_printed++;
+					number = -number;
+				}
+				/*for number with more than one digit*/
+				divisor = 1;
+
+				while (number > 9)
+				{
+					divisor *= 10;
+				}
+				if (number > 9)
+				{
+					digits = number / divisor;
+					_putchar(digits + '0');
+					chars_printed++;
+					number = number % 10;
+					divisor /= 10;
+				}
+				else 
+				{
+					_putchar(number + '0');
+					chars_printed++;
+				}
+
 			}
 
 		}
