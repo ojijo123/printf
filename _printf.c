@@ -18,7 +18,6 @@ int _putchar(char c)
  */
 int _printf(const char *format, ...)
 {
-	int negative;
 	int digits;
 	int divisor;
 	int number;
@@ -71,7 +70,7 @@ int _printf(const char *format, ...)
 				if (number < 0)
 				{
 					_putchar('-');
-					chars_printed++
+					chars_printed++;
 					number = -number;
 				}
 
