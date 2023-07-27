@@ -77,22 +77,17 @@ int _printf(const char *format, ...)
 				/*for number with more than one digit*/
 				divisor = 1;
 
-				while (number > 9)
+				while (number / divisor > 9)
 				{
 					divisor *= 10;
 				}
-				if (number > 9)
+				while (divisor != 0)
 				{
 					digits = number / divisor;
 					_putchar(digits + '0');
 					chars_printed++;
-					number = number % 10;
+					number = number % divisor;
 					divisor /= 10;
-				}
-				else 
-				{
-					_putchar(number + '0');
-					chars_printed++;
 				}
 
 			}
