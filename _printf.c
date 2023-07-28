@@ -21,6 +21,8 @@ int _printf(const char *format, ...)
 	int digits;
 	int divisor;
 	int number;
+	unsigned int num;
+	unsigned int mask;
 	char ch;
 	int chars_printed = 0;
 	int i;
@@ -89,8 +91,26 @@ int _printf(const char *format, ...)
 					number = number % divisor;
 					divisor /= 10;
 				}
-
 			}
+				else if (ch == 'b')
+				{
+			   		num = va_arg(args, unsigned int);
+					mask = 1 << (sizeof(unsigned int) * 8 - 1);
+
+					while (mask != 0)
+					{
+						if (num & mask)
+						{
+							_putchar('1');
+						}
+						else
+						{
+							_putchar('0');
+						}
+						mask >>= 1;
+					}
+
+				}
 
 		}
 		format++;
