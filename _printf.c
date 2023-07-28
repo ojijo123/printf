@@ -95,7 +95,7 @@ int _printf(const char *format, ...)
 				else if (ch == 'b')
 				{
 			   		num = va_arg(args, unsigned int);
-					mask = 1 << (sizeof(unsigned int) * 8 - 1);
+					mask = 1 << (sizeof(unsigned int) * 2 - 1);
 
 					while (mask != 0)
 					{
